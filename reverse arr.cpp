@@ -1,51 +1,28 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-//ÊäÈë:[1, 2, 3, 4, 5, 6, 7] ºÍ k = 3
-//Êä³ö : [5, 6, 7, 1, 2, 3, 4]
-// ½âÊÍ :
-//	ÏòÓÒĞı×ª 1 ²½ : [7, 1, 2, 3, 4, 5, 6]
-//	ÏòÓÒĞı×ª 2 ²½ : [6, 7, 1, 2, 3, 4, 5]
-//	ÏòÓÒĞı×ª 3 ²½ : [5, 6, 7, 1, 2, 3, 4]
-
-//¶îÍâÊı×é·¨
-
-void rotate(int* nums, int numsSize, int k){
-	int arr[10] = { 0 }; int i = 0; int tem = k;
-	while (k>0)//°ÑºóÃæk¸öÊıÒÀ´Î´æÆğÀ´
-	{
-		arr[i] = nums[numsSize - k];
-		k--;
-		i++;
-	}
-	while ((numsSize - tem) > 0)//´ÓºóÍùÇ°°Ñsize-k¸öÊı´ÓºóÍùÇ°ÒÆ¶¯
-	{
-		nums[numsSize - 1] = nums[numsSize - tem - 1];
-		numsSize--;
-	}
-	while (i>0)//ÔÙ°Ñ¶îÍâ¿ªÊı×éÒÀ´Î´æÈënumsÖĞ
-	{
-		nums[i] = arr[i];
-		i--;
-	}
-}
+//è¾“å…¥:[1, 2, 3, 4, 5, 6, 7] å’Œ k = 3
+//è¾“å‡º : [5, 6, 7, 1, 2, 3, 4]
+// è§£é‡Š :
+//	å‘å³æ—‹è½¬ 1 æ­¥ : [7, 1, 2, 3, 4, 5, 6]
+//	å‘å³æ—‹è½¬ 2 æ­¥ : [6, 7, 1, 2, 3, 4, 5]
+//	å‘å³æ—‹è½¬ 3 æ­¥ : [5, 6, 7, 1, 2, 3, 4]
 
 
-
-¶îÍâÊı×é·¨
+é¢å¤–æ•°ç»„æ³•
 
 void rotate(int* nums, int numsSize, int k){
     int arr[10] = {0};int i = 0;int tem = k;
-    while(k>0)//°ÑºóÃæk¸öÊıÒÀ´Î´æÆğÀ´
+    while(k>0)//æŠŠåé¢kä¸ªæ•°ä¾æ¬¡å­˜èµ·æ¥
     {
         arr[i] = nums[numsSize-k];
         k--;
         i++;
     }
-    while((numsSize-tem) > 0)//´ÓºóÍùÇ°°Ñsize-k¸öÊı´ÓºóÍùÇ°ÒÆ¶¯
+    while((numsSize-tem) > 0)//ä»åå¾€å‰æŠŠsize-kä¸ªæ•°ä»åå¾€å‰ç§»åŠ¨
     {
         nums[numsSize-1] = nums[numsSize-tem-1];
         numsSize--;
     }
-    while(i>0)//ÔÙ°Ñ¶îÍâ¿ªÊı×éÒÀ´Î´æÈënumsÖĞ
+    while(i>0)//å†æŠŠé¢å¤–å¼€æ•°ç»„ä¾æ¬¡å­˜å…¥numsä¸­
     {
         nums[i] = arr[i];
         i--;
@@ -54,8 +31,8 @@ void rotate(int* nums, int numsSize, int k){
 
 
 //
-//Ğı×ª·¨
-//Ê¹ÓÃ·´×ª£¬Ê×ÏÈ°ÑÕû¸öÔªËØ½øĞĞ·´×ª£¬È»ºóÔÙ·´×ªÇ©ÃûµÄk¸öÔªËØºÍºóÃæµÄ(n - k)¸öÔªËØ
+//æ—‹è½¬æ³•
+//ä½¿ç”¨åè½¬ï¼Œé¦–å…ˆæŠŠæ•´ä¸ªå…ƒç´ è¿›è¡Œåè½¬ï¼Œç„¶åå†åè½¬ç­¾åçš„kä¸ªå…ƒç´ å’Œåé¢çš„(n - k)ä¸ªå…ƒç´ 
 
 void rotate(int* nums, int numsSize, int k){
 	reverse(nums, 0, numsSize - 1);
