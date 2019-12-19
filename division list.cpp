@@ -36,5 +36,3 @@ public:
 		free(LessHead);
 		free(GreaterHead);
 		return list;
-
-	}
