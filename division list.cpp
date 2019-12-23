@@ -1,11 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-//Ë¼Â·:¶¨ÒåÁ½¸öÍ·½Úµã,°ÑËùÓÐÖµºÍx½øÐÐ±È½Ï,Ð¡µÄ·Åµ½Ò»Æð,´óµÄ·Åµ½Ò»Æð.×îºó°Ñ´óÁ´±í¸½µ½Ð¡µÄºóÃæ,ÔÚ·µ»Ø
+//æ€è·¯:å®šä¹‰ä¸¤ä¸ªå¤´èŠ‚ç‚¹,æŠŠæ‰€æœ‰å€¼å’Œxè¿›è¡Œæ¯”è¾ƒ,å°çš„æ”¾åˆ°ä¸€èµ·,å¤§çš„æ”¾åˆ°ä¸€èµ·.æœ€åŽæŠŠå¤§é“¾è¡¨é™„åˆ°å°çš„åŽé¢,åœ¨è¿”å›ž
 typedef struct ListNode ListNode;
 class Partition {
 public:
 	ListNode* partition(ListNode* pHead, int x) {
 		// write code here
-		//ÏÈÉêÇëÁ½¸öÍ·½Úµã
+		//å…ˆç”³è¯·ä¸¤ä¸ªå¤´èŠ‚ç‚¹
 		ListNode* LessHead = (ListNode*)malloc(sizeof(ListNode));
 		ListNode* GreaterHead = (ListNode*)malloc(sizeof(ListNode));
 		LessHead->next = NULL; GreaterHead->next = NULL;
@@ -15,11 +15,11 @@ public:
 		ListNode* cur = pHead;
 		while (cur)
 		{
-			//Ð¡ÓÚ·Åµ½Ð¡µÄÀïÃæ
+			//å°äºŽæ”¾åˆ°å°çš„é‡Œé¢
 			if (cur->val < x)
 			{
 				Lesstail->next = cur;
-				Lesstail = cur;//cur´ËÊ±Ã»ÓÐ¶¯ËùÒÔ»¹ÊÇÖ¸ÏòµÄÕý³£µÄcurºóÃæ
+				Lesstail = cur;//curæ­¤æ—¶æ²¡æœ‰åŠ¨æ‰€ä»¥è¿˜æ˜¯æŒ‡å‘çš„æ­£å¸¸çš„curåŽé¢
 			}
 			else
 			{
@@ -28,10 +28,11 @@ public:
 			}
 			cur = cur->next;
 		}
-		//°Ñ´óµÄÏÎ½Óµ½Ð¡µÄºóÃæ
+		//æŠŠå¤§çš„è¡”æŽ¥åˆ°å°çš„åŽé¢
 		Lesstail->next = GreaterHead->next;
-		Greatertail->next = NULL;
-		//ÊÍ·ÅÁ½¸öÍ·½Úµã
+		Greatertail->next = NULL;//æ³¨æ„è¿™é‡Œ,ä¸€å®šè¦æŠŠå¤§çš„å°¾è®¾ä¸ºç©º,å¦åˆ™å½“å‡ºçŽ°æœ€åŽä¸¤ä¸ªæ•°ä¸º8,2.8æ˜¯å¤§é“¾è¡¨çš„æœ€åŽä¸€ä¸ª.ä¸æŠŠä»–è®¾æˆç©º,åˆ™8å°±æŒ‡å‘
+		  	                 //äº†2,å½¢æˆäº†çŽ¯å½¢é“¾è¡¨!æœ‰é—®é¢˜.
+		//é‡Šæ”¾ä¸¤ä¸ªå¤´èŠ‚ç‚¹
 		ListNode* list = LessHead->next;
 		free(LessHead);
 		free(GreaterHead);
